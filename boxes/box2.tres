@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="BoxData" load_steps=5 format=3 uid="uid://ncxa5jh681qy"]
+
+[ext_resource type="Material" uid="uid://cue72lh3v2h7j" path="res://outline.tres" id="1_b8tuu"]
+[ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="2_dsvg0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsvg0"]
+next_pass = ExtResource("1_b8tuu")
+albedo_color = Color(0.53759, 0.330181, 0.466143, 1)
+roughness = 0.35
+
+[sub_resource type="TextMesh" id="TextMesh_b8tuu"]
+text = "Hello World"
+
+[resource]
+script = ExtResource("2_dsvg0")
+name = "Cumios"
+price = 9.95
+description = "This cereal will get you HARD"
+manufacturer = "ShitBrix"
+rarity = 2
+material = SubResource("StandardMaterial3D_dsvg0")
+toy_mesh = SubResource("TextMesh_b8tuu")
+metadata/_custom_type_script = "uid://bq45u8nsq6ujc"

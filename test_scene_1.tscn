@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://6rmk55lieb5t"]
+
+[ext_resource type="Script" uid="uid://chrq7f8ei6jam" path="res://box.gd" id="1_0avjr"]
+[ext_resource type="Material" uid="uid://cgcqph37wwpus" path="res://outline.tres" id="2_kp4xy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ss1g3"]
+next_pass = ExtResource("2_kp4xy")
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.05
+
+[sub_resource type="BoxMesh" id="BoxMesh_nbj2j"]
+material = SubResource("StandardMaterial3D_ss1g3")
+size = Vector3(1.25, 6, 4)
+
+[node name="CerealBox" type="Node3D"]
+script = ExtResource("1_0avjr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nbj2j")

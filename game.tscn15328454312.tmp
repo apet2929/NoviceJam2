@@ -1,0 +1,219 @@
+[gd_scene load_steps=17 format=3 uid="uid://cyouginiclugv"]
+
+[ext_resource type="PackedScene" uid="uid://br17d7v6ogjd7" path="res://cereal_box.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://cdaikrfu1toe7" path="res://game.gd" id="1_ryrav"]
+[ext_resource type="Theme" uid="uid://cebssi3strko3" path="res://theme.res" id="2_7jktm"]
+[ext_resource type="PackedScene" uid="uid://dnv7kj6v43d51" path="res://bat.tscn" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://cx2qxok1mtei4" path="res://ui.gd" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://j27xbgqi22ul" path="res://button.tscn" id="3_fc0e3"]
+[ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="3_vef74"]
+[ext_resource type="PackedScene" uid="uid://bhl0vt4cr2mnt" path="res://cereal_explosion.tscn" id="6_eow3j"]
+[ext_resource type="PackedScene" uid="uid://bl8a8cgvsfq0b" path="res://toy.tscn" id="7_j5wjh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e2o6t"]
+sky_top_color = Color(0.580073, 0.406939, 0.239553, 1)
+sky_horizon_color = Color(0.482356, 0.693865, 0.757248, 1)
+sky_curve = 0.191184
+sky_energy_multiplier = 1.2
+ground_horizon_color = Color(0.744614, 0.578073, 0.84616, 1)
+sun_angle_max = 360.0
+
+[sub_resource type="Sky" id="Sky_feb5d"]
+sky_material = SubResource("ProceduralSkyMaterial_e2o6t")
+
+[sub_resource type="Environment" id="Environment_fc0e3"]
+background_mode = 2
+sky = SubResource("Sky_feb5d")
+
+[sub_resource type="Resource" id="Resource_hve3p"]
+script = ExtResource("3_vef74")
+name = "Foo Bar"
+price = 0.0
+description = "Description"
+manufacturer = "StanCorp"
+rarity = 0
+material_file = "uid://cg7h2oivh0853"
+metadata/_custom_type_script = "uid://bq45u8nsq6ujc"
+
+[sub_resource type="Animation" id="Animation_e2o6t"]
+resource_name = "swing"
+length = 5.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0333333, 1, 3.60052, 0, 5.75074, 0.533333, 1, 3.60052, 0, 4.87893, 0.866667, 1, 3.60052, 0, 4.21861, 1.8, 1, 3.60052, 0, 5.75074)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.0333333, 1, -0.611483, -0.261527, -0.0803488, 0.742453, 0.833333, 1, -0.488063, 0.342208, 0.377044, 0.708891, 1.66667, 1, 0.114251, 0.77589, 0.620436, -0.00119781, 2.7, 1, -0.388697, -0.663211, -0.329674, 0.54807)
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_feb5d"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fc0e3"]
+_data = {
+&"RESET": SubResource("Animation_feb5d"),
+&"swing": SubResource("Animation_e2o6t")
+}
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_ryrav")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.178593, -0.0182657, 0.983753, 0.00962642, 0.999812, 0.0168163, -0.983876, 0.00646674, 0.178736, 6.15135, 0.755461, 4.35399)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fc0e3")
+
+[node name="CerealBox" parent="." instance=ExtResource("1_80nbo")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+data = SubResource("Resource_hve3p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.85819, -0.000394233, 0.513331, -0.513332, -0.000659082, 0.85819, 0, -1, -0.00076799, 47, 40, 0)
+light_energy = 2.778
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_7jktm")
+script = ExtResource("2_feb5d")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.391
+anchor_bottom = 1.0
+offset_right = -0.432037
+grow_vertical = 2
+theme = ExtResource("2_7jktm")
+split_offset = 250
+dragger_visibility = 1
+
+[node name="ColorRect" type="ColorRect" parent="UI/VSplitContainer"]
+layout_mode = 2
+theme = ExtResource("2_7jktm")
+color = Color(0.890196, 0.858824, 0.788235, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VSplitContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7jktm")
+
+[node name="BoxName" type="Label" parent="UI/VSplitContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7jktm")
+text = "Name: Foo bar"
+
+[node name="Manufacturer" type="Label" parent="UI/VSplitContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7jktm")
+text = "Manufacturer: Foo bar"
+
+[node name="ColorRect2" type="ColorRect" parent="UI/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_7jktm")
+color = Color(0.890196, 0.858824, 0.788235, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VSplitContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7jktm")
+theme_override_constants/separation = 45
+
+[node name="Description" type="Label" parent="UI/VSplitContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7jktm")
+text = "Description:
+Foo bar"
+
+[node name="Price" type="Label" parent="UI/VSplitContainer/ColorRect2"]
+layout_mode = 2
+offset_left = -3.0
+offset_top = 257.0
+offset_right = 447.0
+offset_bottom = 306.0
+theme = ExtResource("2_7jktm")
+text = "$0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HFlowContainer" parent="UI/VSplitContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -73.0
+offset_right = 126.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7jktm")
+theme_override_constants/h_separation = 20
+alignment = 1
+
+[node name="Buy Button" parent="UI/VSplitContainer/ColorRect2/HBoxContainer" instance=ExtResource("3_fc0e3")]
+layout_mode = 2
+
+[node name="Buy Button2" parent="UI/VSplitContainer/ColorRect2/HBoxContainer" instance=ExtResource("3_fc0e3")]
+layout_mode = 2
+text = "Skip"
+
+[node name="CerealExplosion" parent="." instance=ExtResource("6_eow3j")]
+
+[node name="Toy" parent="." instance=ExtResource("7_j5wjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.03191)
+
+[node name="Bat" parent="." instance=ExtResource("2_e2o6t")]
+transform = Transform3D(0.850294, 0.439149, -0.290079, 0.200528, 0.239266, 0.950021, 0.486607, -0.865968, 0.115385, 0, 0, 0)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bat"]
+libraries = {
+&"": SubResource("AnimationLibrary_fc0e3")
+}

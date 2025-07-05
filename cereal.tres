@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://oiwtu2q0vjt0"]
+
+[ext_resource type="Material" uid="uid://cue72lh3v2h7j" path="res://outline.tres" id="1_2cnn4"]
+
+[resource]
+next_pass = ExtResource("1_2cnn4")
+albedo_color = Color(0.470171, 0.392107, 0.325105, 1)
+roughness = 0.35

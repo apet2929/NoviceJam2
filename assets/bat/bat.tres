@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bukfqoym0vx5a"]
+
+[ext_resource type="Texture2D" uid="uid://dv5e57yst7fcr" path="res://assets/bat/baseball_bat_Maple_Wood_03_Base.jpg" id="1_6k04q"]
+[ext_resource type="Texture2D" uid="uid://salqgiycc603" path="res://assets/bat/baseball_bat_Maple_Wood_03_Roughness.png" id="2_xqc8p"]
+[ext_resource type="Material" uid="uid://cue72lh3v2h7j" path="res://outline.tres" id="3_4hxvn"]
+[ext_resource type="Texture2D" uid="uid://5lcjn4g8tgsf" path="res://assets/bat/baseball_bat_Maple_Wood_03_Normal.jpg" id="3_b0f4u"]
+
+[resource]
+resource_name = "Maple Wood 03.001"
+next_pass = ExtResource("3_4hxvn")
+cull_mode = 2
+albedo_color = Color(0.352332, 0.304281, 0.141659, 1)
+albedo_texture = ExtResource("1_6k04q")
+metallic_texture = ExtResource("2_xqc8p")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_xqc8p")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_b0f4u")

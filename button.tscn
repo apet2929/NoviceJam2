@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://j27xbgqi22ul"]
+
+[ext_resource type="Theme" uid="uid://cebssi3strko3" path="res://theme.res" id="1_r04n3"]
+
+[node name="Buy Button" type="Button"]
+offset_right = 147.0
+offset_bottom = 39.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_r04n3")
+theme_override_font_sizes/font_size = 26
+text = "Buy"

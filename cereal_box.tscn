@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://br17d7v6ogjd7"]
+
+[ext_resource type="Script" uid="uid://chrq7f8ei6jam" path="res://box.gd" id="1_4dgk7"]
+[ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="2_dmlxi"]
+[ext_resource type="Material" uid="uid://cg7h2oivh0853" path="res://cereal2.tres" id="3_dmlxi"]
+
+[sub_resource type="Resource" id="Resource_nvcx1"]
+script = ExtResource("2_dmlxi")
+name = "Foo Bar"
+price = 0.0
+description = "Description"
+manufacturer = "StanCorp"
+rarity = 0
+metadata/_custom_type_script = "uid://bq45u8nsq6ujc"
+
+[sub_resource type="BoxMesh" id="BoxMesh_nbj2j"]
+material = ExtResource("3_dmlxi")
+size = Vector3(1.25, 6, 4)
+
+[node name="CerealBox" type="Node3D"]
+script = ExtResource("1_4dgk7")
+data = SubResource("Resource_nvcx1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nbj2j")
