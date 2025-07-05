@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cyouginiclugv"]
+[gd_scene load_steps=18 format=3 uid="uid://cyouginiclugv"]
 
 [ext_resource type="PackedScene" uid="uid://br17d7v6ogjd7" path="res://cereal_box.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cdaikrfu1toe7" path="res://game.gd" id="1_ryrav"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://ncxa5jh681qy" path="res://boxes/box2.tres" id="4_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://bhl0vt4cr2mnt" path="res://cereal_explosion.tscn" id="6_eow3j"]
 [ext_resource type="PackedScene" uid="uid://bl8a8cgvsfq0b" path="res://toy.tscn" id="7_j5wjh"]
+[ext_resource type="Script" uid="uid://cn3fptk7jvrc" path="res://market.gd" id="13_lc2xo"]
 
 [sub_resource type="Animation" id="Animation_feb5d"]
 length = 0.001
@@ -38,6 +39,47 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-1.2533, -1.19221, 0.697544)]
+}
+
+[sub_resource type="Animation" id="Animation_iotsf"]
+resource_name = "smack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1.7411, 1),
+"update": 0,
+"values": [Vector3(-142.983, 0, 19.248), Vector3(5.58, 1.185, 0.678)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.2533, 0.974839, 0.697544), Vector3(-1.25315, 0.785398, 34.0688)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_e2o6t"]
@@ -82,47 +124,6 @@ tracks/2/keys = {
 "values": [Vector3(-1.2533, 0.974839, 0.697544), Vector3(-1.25315, 0.0453786, 0.698132), Vector3(-0.492183, 4.71937, 0.698132)]
 }
 
-[sub_resource type="Animation" id="Animation_iotsf"]
-resource_name = "smack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.766667),
-"transitions": PackedFloat32Array(1.7411, 1),
-"update": 0,
-"values": [Vector3(-142.983, 0, 19.248), Vector3(5.58, 1.185, 0.678)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.766667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.2533, 0.974839, 0.697544), Vector3(-1.25315, 0.785398, 34.0688)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"explode"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fc0e3"]
 _data = {
 &"RESET": SubResource("Animation_feb5d"),
@@ -150,7 +151,7 @@ transform = Transform3D(0.85819, -0.000394233, 0.513331, -0.513332, -0.000659082
 light_energy = 2.778
 
 [node name="Bat" parent="." instance=ExtResource("2_e2o6t")]
-transform = Transform3D(0.850295, 0.439149, -0.290079, 0.200528, 0.239265, 0.950022, 0.486606, -0.865968, 0.115385, 3.60052, 0, 5.75074)
+transform = Transform3D(0.850296, 0.439144, -0.290083, 0.20053, 0.239269, 0.950021, 0.486603, -0.865969, 0.115387, 3.60052, 0, 5.75074)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bat"]
 libraries = {
@@ -243,16 +244,6 @@ theme = ExtResource("2_7jktm")
 text = "$0"
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="UI/VSplitContainer/ColorRect2"]
-layout_mode = 2
-offset_left = 14.0
-offset_top = 174.0
-offset_right = 432.0
-offset_bottom = 255.0
-theme = ExtResource("2_7jktm")
-text = "Description:
-Foo bar"
-
 [node name="BuyContainer" type="HFlowContainer" parent="UI/VSplitContainer/ColorRect2"]
 layout_mode = 2
 offset_top = 404.0
@@ -289,3 +280,55 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 text = "Next"
+
+[node name="Description" type="Label" parent="UI/VSplitContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -39.0
+offset_right = 436.0
+offset_bottom = 42.0
+theme = ExtResource("2_7jktm")
+text = "Description:
+Foo bar"
+
+[node name="PriceGraph" type="ColorRect" parent="UI"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 42.0
+offset_top = -50.0
+offset_right = 432.0
+offset_bottom = 130.0
+grow_vertical = 2
+color = Color(0.245529, 0.481155, 0.214422, 1)
+script = ExtResource("13_lc2xo")
+
+[node name="Bars" type="VBoxContainer" parent="UI/PriceGraph"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 18.0
+offset_right = -117.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Bar1" type="ColorRect" parent="UI/PriceGraph/Bars"]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Bar2" type="ColorRect" parent="UI/PriceGraph/Bars"]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Bar3" type="ColorRect" parent="UI/PriceGraph/Bars"]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+size_flags_vertical = 8

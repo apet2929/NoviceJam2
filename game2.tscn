@@ -1,0 +1,254 @@
+[gd_scene load_steps=17 format=3 uid="uid://cpsuon8ym3gve"]
+
+[ext_resource type="Script" uid="uid://cdaikrfu1toe7" path="res://game.gd" id="1_q770q"]
+[ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="2_f8k1y"]
+[ext_resource type="Resource" uid="uid://dodxpwt56pekm" path="res://boxes/box1.tres" id="3_nhfqt"]
+[ext_resource type="Resource" uid="uid://ncxa5jh681qy" path="res://boxes/box2.tres" id="4_v0n6i"]
+[ext_resource type="Environment" uid="uid://b0ge3bcyd0kfs" path="res://world_env.tres" id="5_xspbh"]
+[ext_resource type="PackedScene" uid="uid://br17d7v6ogjd7" path="res://cereal_box.tscn" id="6_cps6k"]
+[ext_resource type="PackedScene" uid="uid://dnv7kj6v43d51" path="res://bat.tscn" id="7_8tca4"]
+[ext_resource type="PackedScene" uid="uid://bhl0vt4cr2mnt" path="res://cereal_explosion.tscn" id="8_boqrt"]
+[ext_resource type="PackedScene" uid="uid://bl8a8cgvsfq0b" path="res://toy.tscn" id="9_vfwdf"]
+[ext_resource type="Theme" uid="uid://cebssi3strko3" path="res://theme.res" id="10_5gpan"]
+[ext_resource type="Script" uid="uid://cx2qxok1mtei4" path="res://ui.gd" id="11_nuj7l"]
+[ext_resource type="PackedScene" uid="uid://j27xbgqi22ul" path="res://button.tscn" id="12_7drl1"]
+[ext_resource type="Script" uid="uid://cn3fptk7jvrc" path="res://market.gd" id="13_2wyxb"]
+
+[sub_resource type="Animation" id="Animation_feb5d"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+
+[sub_resource type="Animation" id="Animation_e2o6t"]
+resource_name = "swing"
+length = 5.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0333333, 1, 3.60052, 0, 5.75074, 0.533333, 1, 3.60052, 0, 4.87893, 0.866667, 1, 3.60052, 0, 4.21861, 1.8, 1, 3.60052, 0, 5.75074)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.0333333, 1, -0.611483, -0.261527, -0.0803488, 0.742453, 0.833333, 1, -0.488063, 0.342208, 0.377044, 0.708891, 1.66667, 1, 0.114251, 0.77589, 0.620436, -0.00119781, 2.7, 1, -0.388697, -0.663211, -0.329674, 0.54807)
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fc0e3"]
+_data = {
+&"RESET": SubResource("Animation_feb5d"),
+&"swing": SubResource("Animation_e2o6t")
+}
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_q770q")
+possible_boxes = Array[ExtResource("2_f8k1y")]([ExtResource("3_nhfqt"), ExtResource("4_v0n6i")])
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.178593, -0.0182657, 0.983753, 0.00962642, 0.999812, 0.0168163, -0.983876, 0.00646674, 0.178736, 6.15135, 0.755461, 4.35399)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_xspbh")
+
+[node name="CerealBox" parent="." instance=ExtResource("6_cps6k")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+data = ExtResource("3_nhfqt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.85819, -0.000394233, 0.513331, -0.513332, -0.000659082, 0.85819, 0, -1, -0.00076799, 47, 40, 0)
+light_energy = 2.778
+
+[node name="Bat" parent="." instance=ExtResource("7_8tca4")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bat"]
+libraries = {
+&"": SubResource("AnimationLibrary_fc0e3")
+}
+
+[node name="CerealExplosion" parent="." instance=ExtResource("8_boqrt")]
+
+[node name="Toy" parent="." instance=ExtResource("9_vfwdf")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("10_5gpan")
+script = ExtResource("11_nuj7l")
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 0
+offset_right = 471.0
+offset_bottom = 648.0
+color = Color(0.259294, 0.259294, 0.259294, 1)
+
+[node name="VSplitContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.391
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 9.56796
+offset_bottom = -8.0
+grow_vertical = 2
+theme = ExtResource("10_5gpan")
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="UI/VSplitContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme = ExtResource("10_5gpan")
+color = Color(0.890196, 0.858824, 0.788235, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VSplitContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_5gpan")
+
+[node name="BoxName" type="Label" parent="UI/VSplitContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_5gpan")
+text = "Name: Foo bar"
+
+[node name="Manufacturer" type="Label" parent="UI/VSplitContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_5gpan")
+text = "Manufacturer: Foo bar"
+
+[node name="ColorRect2" type="ColorRect" parent="UI/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("10_5gpan")
+color = Color(0.890196, 0.858824, 0.788235, 1)
+
+[node name="Price" type="Label" parent="UI/VSplitContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -227.0
+offset_top = -141.0
+offset_right = 223.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("10_5gpan")
+text = "$0"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="UI/VSplitContainer/ColorRect2"]
+layout_mode = 2
+offset_left = 18.0
+offset_top = -39.0
+offset_right = 436.0
+offset_bottom = 42.0
+theme = ExtResource("10_5gpan")
+text = "Description:
+Foo bar"
+
+[node name="BuyContainer" type="HFlowContainer" parent="UI/VSplitContainer/ColorRect2"]
+layout_mode = 2
+offset_top = 404.0
+offset_right = 450.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("10_5gpan")
+theme_override_constants/h_separation = 20
+alignment = 1
+
+[node name="BuyButton" parent="UI/VSplitContainer/ColorRect2/BuyContainer" instance=ExtResource("12_7drl1")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SkipButton" parent="UI/VSplitContainer/ColorRect2/BuyContainer" instance=ExtResource("12_7drl1")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Skip"
+
+[node name="NextContainer" type="HFlowContainer" parent="UI/VSplitContainer/ColorRect2"]
+visible = false
+layout_mode = 2
+offset_top = 404.0
+offset_right = 450.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("10_5gpan")
+theme_override_constants/h_separation = 20
+alignment = 1
+
+[node name="NextButton" parent="UI/VSplitContainer/ColorRect2/NextContainer" instance=ExtResource("12_7drl1")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Next"
+
+[node name="ColorRect2" type="ColorRect" parent="UI"]
+layout_mode = 0
+offset_left = 904.0
+offset_top = 2.0
+offset_right = 1146.0
+offset_bottom = 69.0
+color = Color(0.890196, 0.858824, 0.788235, 1)
+
+[node name="BoxName" type="Label" parent="UI/ColorRect2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_top = 13.0
+offset_right = -22.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme = ExtResource("10_5gpan")
+text = "Balance: $3.50 yo "
+
+[node name="PriceGraph" type="ColorRect" parent="UI"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+offset_left = 37.0
+offset_top = 284.0
+offset_right = 427.0
+offset_bottom = 464.0
+color = Color(0.245529, 0.481155, 0.214422, 1)
+script = ExtResource("13_2wyxb")

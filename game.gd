@@ -21,10 +21,15 @@ func buy_box():
 	play_swing()
 	$UI/VSplitContainer/ColorRect2/BuyContainer.visible = false
 	$UI/VSplitContainer/ColorRect2/NextContainer.visible = true
-	
+
 func play_swing():
 	$Bat.visible = true
-	$Bat/AnimationPlayer.play("swing")
+	var anims = $Bat/AnimationPlayer.get_animation_list()
+	var anim_id = randi_range(1, len(anims)-1)
+	var selected_anim = anims[anim_id]
+	print(anim_id)
+	$Bat/AnimationPlayer.play(selected_anim)
+	print(selected_anim)
 	
 func explode():
 	$CerealBox.visible = false
