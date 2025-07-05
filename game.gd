@@ -3,10 +3,13 @@ extends Node3D
 @export var money: float = 0.0
 
 @export var possible_boxes: Array[BoxData] = []
+@export var rarity_mats: Dictionary[BoxData.Rarity, BaseMaterial3D] = {}
+
 func _ready() -> void:
 	$CerealExplosion.emitting = false
 	%BuyButton.connect("button_up", self.buy_box)
 	%NextButton.connect("button_up", self.spawn_new_box)
+	%SkipButton.connect("button_up", self.spawn_new_box)
 	$Bat/AnimationPlayer.play("RESET")
 	$Bat.visible = false
 	$Toy.visible = false

@@ -4,6 +4,7 @@ class_name Box
 
 @export var rot_speed: float = 1.0; # rps
 @export var data: BoxData;
+
 var rarity: BoxData.Rarity
 
 var mat_loaded = false;
@@ -25,7 +26,7 @@ func reset(box_data: BoxData, rarityf: float):
 	else:
 		self.rarity = BoxData.Rarity.COMMON
 	
-	print(self.rarity)
+	print(BoxData.Rarity.keys()[self.rarity])
 	
 	self.visible = true
 	
@@ -33,6 +34,8 @@ func reset(box_data: BoxData, rarityf: float):
 func _process(delta: float) -> void:
 	if not mat_loaded:
 		if self.data.material != null:
+			#self.data.material.next_pass = 
 			$MeshInstance3D.set_surface_override_material(0,  self.data.material)
 			mat_loaded = true
+			
 	self.rotate_y(rot_speed * 2.0 * PI * delta);
