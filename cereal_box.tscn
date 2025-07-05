@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://br17d7v6ogjd7"]
+[gd_scene load_steps=12 format=3 uid="uid://br17d7v6ogjd7"]
 
 [ext_resource type="Script" uid="uid://chrq7f8ei6jam" path="res://box.gd" id="1_4dgk7"]
 [ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="2_dmlxi"]
 [ext_resource type="Material" uid="uid://cue72lh3v2h7j" path="res://outline.tres" id="3_nvcx1"]
+[ext_resource type="Material" uid="uid://b8ed4dduq5oku" path="res://brand.tres" id="4_haetb"]
 [ext_resource type="Shader" uid="uid://ci2ub30rlxeoy" path="res://aura.gdshader" id="4_nvcx1"]
 
 [sub_resource type="Resource" id="Resource_nvcx1"]
@@ -20,6 +21,9 @@ albedo_color = Color(0.533776, 0.407323, 0.287308, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_dmlxi"]
 size = Vector3(4, 6, 1.25)
+
+[sub_resource type="QuadMesh" id="QuadMesh_47ttl"]
+size = Vector2(2.775, 4.295)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_haetb"]
 render_priority = 0
@@ -50,6 +54,11 @@ data = SubResource("Resource_nvcx1")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_k8fp7")
 mesh = SubResource("BoxMesh_dmlxi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+mesh = SubResource("QuadMesh_47ttl")
+surface_material_override/0 = ExtResource("4_haetb")
 
 [node name="Aura" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)

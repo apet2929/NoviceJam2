@@ -17,6 +17,7 @@ enum Rarity {
 @export var rarity: Rarity;
 @export var material: BaseMaterial3D;
 @export var toy_mesh: Mesh;
+@export var brand_texture: Texture;
 
 func _init(Price=0.0, Name="Debug", Description="", Manufacturer="", Rarity=Rarity.COMMON):
 	self.price = Price

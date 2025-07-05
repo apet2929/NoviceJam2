@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="BoxData" load_steps=5 format=3 uid="uid://ncxa5jh681qy"]
+[gd_resource type="Resource" script_class="BoxData" load_steps=6 format=3 uid="uid://ncxa5jh681qy"]
 
 [ext_resource type="Material" uid="uid://cue72lh3v2h7j" path="res://outline.tres" id="1_b8tuu"]
+[ext_resource type="Texture2D" uid="uid://cpuy8wbqpxxod" path="res://assets/CMY Eagle Cereal.png" id="1_dsvg0"]
 [ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="2_dsvg0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsvg0"]
@@ -20,4 +21,5 @@ manufacturer = "ShitBrix"
 rarity = 2
 material = SubResource("StandardMaterial3D_dsvg0")
 toy_mesh = SubResource("TextMesh_b8tuu")
+brand_texture = ExtResource("1_dsvg0")
 metadata/_custom_type_script = "uid://bq45u8nsq6ujc"
