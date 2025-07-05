@@ -14,6 +14,7 @@ func _ready() -> void:
 	$Bat.visible = false
 	$Toy.visible = false
 	spawn_new_box()
+	print("hello world!")
 
 func buy_box():
 	var box = $CerealBox.data

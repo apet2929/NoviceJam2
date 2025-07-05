@@ -74,7 +74,6 @@ environment = ExtResource("2_mfdv2")
 [node name="CerealBox" parent="." instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-rot_speed = 1.0
 data = ExtResource("4_hve3p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
