@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cyouginiclugv"]
+[gd_scene load_steps=17 format=3 uid="uid://cyouginiclugv"]
 
 [ext_resource type="PackedScene" uid="uid://br17d7v6ogjd7" path="res://cereal_box.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cdaikrfu1toe7" path="res://game.gd" id="1_ryrav"]
@@ -15,38 +15,41 @@
 
 [sub_resource type="Animation" id="Animation_feb5d"]
 length = 0.001
-tracks/0/type = "position_3d"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.60052, 0, 5.75074)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.2533, -1.19221, 0.697544)]
+}
 
 [sub_resource type="Animation" id="Animation_e2o6t"]
 resource_name = "swing"
 length = 5.0
-tracks/0/type = "position_3d"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.0333333, 1, 3.60052, 0, 5.75074, 0.533333, 1, 3.60052, 0, 4.87893, 0.866667, 1, 3.60052, 0, 4.21861, 1.8, 1, 3.60052, 0, 5.75074)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0.0333333, 1, -0.611483, -0.261527, -0.0803488, 0.742453, 0.833333, 1, -0.488063, 0.342208, 0.377044, 0.708891, 1.66667, 1, 0.114251, 0.77589, 0.620436, -0.00119781, 2.7, 1, -0.388697, -0.663211, -0.329674, 0.54807)
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/0/keys = {
 "times": PackedFloat32Array(0.533333),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -54,10 +57,38 @@ tracks/2/keys = {
 "method": &"explode"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-4.47062, 0, 0.677776)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.566667),
+"transitions": PackedFloat32Array(0.353553, 2.63902, 1),
+"update": 0,
+"values": [Vector3(-1.2533, 0.974839, 0.697544), Vector3(-1.25315, 0.0453786, 0.698132), Vector3(-0.492183, 4.71937, 0.698132)]
+}
+
+[sub_resource type="Animation" id="Animation_iotsf"]
+resource_name = "smack"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fc0e3"]
 _data = {
 &"RESET": SubResource("Animation_feb5d"),
+&"smack": SubResource("Animation_iotsf"),
 &"swing": SubResource("Animation_e2o6t")
 }
 
@@ -81,7 +112,7 @@ transform = Transform3D(0.85819, -0.000394233, 0.513331, -0.513332, -0.000659082
 light_energy = 2.778
 
 [node name="Bat" parent="." instance=ExtResource("2_e2o6t")]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.850295, 0.439149, -0.290079, 0.200528, 0.239265, 0.950022, 0.486606, -0.865968, 0.115385, 3.60052, 0, 5.75074)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bat"]
 libraries = {
