@@ -16,6 +16,9 @@ func _ready() -> void:
 	$Bat.visible = false
 	$Toy.visible = false
 	spawn_new_box()
+	
+func _process(delta: float) -> void:
+	$UI/VSplitContainer/ColorRect2/Money.text = "Balance: " + str(self.money)
 
 func mute():
 	if $Music.playing:
