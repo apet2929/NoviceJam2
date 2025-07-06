@@ -28,5 +28,4 @@ func _process(delta: float) -> void:
 			var mat =  $MeshInstance3D/MeshInstance3D.get_surface_override_material(0)
 			mat.albedo_texture = self.data.brand_texture
 			
-			
 	self.rotate_y(rot_speed * 2.0 * PI * delta);
