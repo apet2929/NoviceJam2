@@ -52,10 +52,9 @@ func explode():
 	$CerealExplosion.emitting = true
 	spawn_toy()
 	%NextButton.disabled = false
-	play_sfx()
 
 func play_sfx():
-	$SFX.play()
+	$SFX.play(0.2)
 
 const LEGENDARY_RARITY = 0.01
 const RARE_RARITY = 0.1
