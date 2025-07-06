@@ -43,15 +43,34 @@ func explode():
 	spawn_toy()
 	%NextButton.disabled = false
 	
+const LEGENDARY_RARITY = 0.01
+const RARE_RARITY = 0.1
+const UNCOMMON_RARITY = 0.3
 func spawn_toy():
+	var rarityf = randf()
+	var rarity = BoxData.Rarity.COMMON
+	var rarity_mat = load("res://assets/rarities/common.tres")
+	if rarityf < LEGENDARY_RARITY:
+		rarity = BoxData.Rarity.LEGENDARY
+		rarity_mat = load("res://assets/rarities/legendary.tres")
+	elif rarityf < RARE_RARITY:
+		rarity = BoxData.Rarity.RARE
+		rarity_mat = load("res://assets/rarities/rare.tres")
+	elif rarityf < UNCOMMON_RARITY:
+		rarity = BoxData.Rarity.UNCOMMON
+		rarity_mat = load("res://assets/rarities/uncommon.tres")
+	else:
+		rarity = BoxData.Rarity.COMMON
+		
 	$Toy.visible = true
-	print(selected_toy)
-	$Toy.load_toy($CerealBox.data.toy_meshes[selected_toy], null)
-	
+	var toy = $CerealBox.data.toys[selected_toy]
+	$Toy.load_toy(toy, rarity_mat)
+	self.money += toy.price
 	
 func spawn_new_box():
-	var rarity = randf()
-	$CerealBox.reset(choose_random_box(), rarity)
+	var box_data = choose_random_box()
+	$CerealBox.reset(box_data)
+	$UI.load_box()
 	$UI/VSplitContainer/ColorRect2/BuyContainer.visible = true
 	$UI/VSplitContainer/ColorRect2/NextContainer.visible = false
 	$Bat/AnimationPlayer.play("RESET")

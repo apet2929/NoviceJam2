@@ -236,7 +236,7 @@ transform = Transform3D(0.85819, -0.000394233, 0.513331, -0.513332, -0.000659082
 light_energy = 2.778
 
 [node name="Bat" parent="." instance=ExtResource("2_e2o6t")]
-transform = Transform3D(0.850296, 0.439144, -0.290083, 0.20053, 0.239269, 0.950021, 0.486603, -0.865969, 0.115387, 3.60052, 0, 5.75074)
+transform = Transform3D(0.850296, 0.439144, -0.290083, 0.20053, 0.239268, 0.950021, 0.486603, -0.865969, 0.115387, 3.60052, 0, 5.75074)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bat"]
 libraries = {
@@ -397,25 +397,45 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = 18.0
-offset_right = -117.0
-offset_bottom = -13.0
+offset_left = 14.0
+offset_top = 46.0
+offset_right = -114.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Bar1" type="ColorRect" parent="UI/PriceGraph/Bars"]
-custom_minimum_size = Vector2(20, 40)
+[node name="Bar2" type="ColorRect" parent="UI/PriceGraph/Bars"]
+custom_minimum_size = Vector2(20, 30.09)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Bar2" type="ColorRect" parent="UI/PriceGraph/Bars"]
-custom_minimum_size = Vector2(20, 40)
-layout_mode = 2
-size_flags_vertical = 8
-
 [node name="Bar3" type="ColorRect" parent="UI/PriceGraph/Bars"]
-custom_minimum_size = Vector2(20, 40)
+custom_minimum_size = Vector2(20, 30.09)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 0
+
+[node name="YAxis" type="ColorRect" parent="UI/PriceGraph"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 14.0
+offset_bottom = 152.0
+color = Color(0.530148, 0.742614, 0.476128, 1)
+
+[node name="XAxis" type="ColorRect" parent="UI/PriceGraph"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 147.52
+offset_right = 274.0
+offset_bottom = 151.52
+color = Color(0.530148, 0.742614, 0.476128, 1)
+
+[node name="Label" type="Label" parent="UI/PriceGraph"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 148.0
+offset_right = 289.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 14
+text = "-50%                       0%                        +50%"
