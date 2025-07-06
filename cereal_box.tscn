@@ -13,6 +13,7 @@ price = 0.0
 description = "Description"
 manufacturer = "StanCorp"
 rarity = 0
+toy_meshes = Array[Mesh]([])
 metadata/_custom_type_script = "uid://bq45u8nsq6ujc"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8fp7"]
