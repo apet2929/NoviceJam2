@@ -6,6 +6,8 @@ func _ready():
 func load_toy(toy: ToyData, rarity_mat: Material):
 	$MeshInstance3D/AuraMesh.set_surface_override_material(0, rarity_mat)
 	$MeshInstance3D/MeshInstance3D.mesh = toy.mesh
+	$MeshInstance3D/MeshInstance3D.set_surface_override_material(0, toy.mesh.surface_get_material(0))
+	
 	$MeshInstance3D/AuraMesh.mesh = toy.mesh
 	
 	$AnimationPlayer.play("spawn")

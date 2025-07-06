@@ -13,6 +13,8 @@ config_version=5
 config/name="novice_summer_jam_2"
 run/main_scene="uid://cyouginiclugv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0.556068, 0.166534, 1)
+boot_splash/image="uid://bhkvegfakbxo5"
 config/icon="res://icon.svg"
 
 [filesystem]

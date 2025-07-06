@@ -4,31 +4,21 @@
 [ext_resource type="Material" uid="uid://cue72lh3v2h7j" path="res://outline.tres" id="2_4yxu7"]
 [ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="3_1k64f"]
 [ext_resource type="Script" uid="uid://dyr0ut83n8g8r" path="res://toy_data.gd" id="4_4yxu7"]
+[ext_resource type="Resource" uid="uid://txn4nhng53bx" path="res://assets/td_fat_angel.tres" id="5_lsue4"]
+[ext_resource type="Resource" uid="uid://ds6cfl0bwegu4" path="res://assets/bird_toy_data.tres" id="6_lsue4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4yxu7"]
 next_pass = ExtResource("2_4yxu7")
 albedo_color = Color(0.53759, 0.330181, 0.466143, 1)
 roughness = 0.35
 
-[sub_resource type="Resource" id="Resource_4yxu7"]
-script = ExtResource("4_4yxu7")
-price = 5.0
-scale = Vector3(1, 1, 1)
-metadata/_custom_type_script = "uid://dyr0ut83n8g8r"
-
-[sub_resource type="Resource" id="Resource_1k64f"]
-script = ExtResource("4_4yxu7")
-price = 5.0
-scale = Vector3(1, 1, 1)
-metadata/_custom_type_script = "uid://dyr0ut83n8g8r"
-
 [resource]
 script = ExtResource("3_1k64f")
 name = "\"Holy F#$! He's Got a Knife!\" Flakes"
-price = 9.95
+price = 5.0
 description = "RUN!! FUCKING RUN AWAY!!!! HE'S GONNA STAB YOU!!! RUN!!! HOLY FUCKING SHIT HE'S GOT A KNIFE HOLY FUCK SHIT AHHHHHHHHHHH!!!!!!!!"
 manufacturer = "JESUS CHRIST HOLY SHIT RAHHHHHHHH"
 material = SubResource("StandardMaterial3D_4yxu7")
-toys = Array[ExtResource("4_4yxu7")]([SubResource("Resource_4yxu7"), SubResource("Resource_1k64f")])
+toys = Array[ExtResource("4_4yxu7")]([ExtResource("5_lsue4"), ExtResource("6_lsue4")])
 brand_texture = ExtResource("1_rdplg")
 metadata/_custom_type_script = "uid://bq45u8nsq6ujc"

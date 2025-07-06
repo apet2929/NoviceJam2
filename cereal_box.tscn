@@ -23,7 +23,7 @@ albedo_color = Color(0.533776, 0.407323, 0.287308, 1)
 size = Vector3(4, 6, 1.25)
 
 [sub_resource type="QuadMesh" id="QuadMesh_47ttl"]
-size = Vector2(2.775, 4.295)
+size = Vector2(3.68, 5.84)
 
 [node name="CerealBox" type="Node3D"]
 script = ExtResource("1_4dgk7")

@@ -13,4 +13,4 @@ func load_box():
 	box_name.text = "Name: " + box.data.name;
 	manufacturer.text = "Manufacturer: " + box.data.manufacturer
 	description.text = "Description: \n" +  box.data.description
-	price.text = "$" + str(box.data.price);
+	price.text = "Cost: $" + str(box.data.price);

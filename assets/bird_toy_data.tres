@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ToyData" load_steps=3 format=3 uid="uid://ds6cfl0bwegu4"]
+
+[ext_resource type="ArrayMesh" uid="uid://jao2x5ia88yl" path="res://assets/bird_toy.tres" id="1_frrcr"]
+[ext_resource type="Script" uid="uid://dyr0ut83n8g8r" path="res://toy_data.gd" id="2_26puh"]
+
+[resource]
+script = ExtResource("2_26puh")
+price = 5.0
+mesh = ExtResource("1_frrcr")
+scale = Vector3(0.7, 0.7, 0.7)
+metadata/_custom_type_script = "uid://dyr0ut83n8g8r"

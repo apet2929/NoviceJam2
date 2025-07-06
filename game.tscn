@@ -239,6 +239,7 @@ loop = true
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_ryrav")
+money = 20.0
 possible_boxes = Array[ExtResource("2_iotsf")]([ExtResource("4_hve3p"), ExtResource("4_lc2xo"), ExtResource("5_80cx4"), ExtResource("6_e8heu")])
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -349,12 +350,14 @@ theme = ExtResource("2_7jktm")
 [node name="BoxName" type="Label" parent="UI/VSplitContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_7jktm")
+theme_override_font_sizes/font_size = 15
 text = "Name: Foo bar"
 autowrap_mode = 2
 
 [node name="Manufacturer" type="Label" parent="UI/VSplitContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_7jktm")
+theme_override_font_sizes/font_size = 15
 text = "Manufacturer: Foo bar"
 autowrap_mode = 2
 
@@ -371,9 +374,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -137.5
+offset_left = -168.5
 offset_top = 71.0
-offset_right = 147.5
+offset_right = 194.5
 offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -389,9 +392,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -127.5
+offset_left = -178.5
 offset_top = -126.0
-offset_right = 127.5
+offset_right = 165.5
 offset_bottom = -83.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -443,6 +446,7 @@ offset_top = -39.0
 offset_right = 436.0
 offset_bottom = 42.0
 theme = ExtResource("2_7jktm")
+theme_override_font_sizes/font_size = 15
 text = "Description:
 Foo bar"
 autowrap_mode = 2

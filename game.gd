@@ -73,8 +73,6 @@ func spawn_toy():
 	else:
 		rarity = BoxData.Rarity.COMMON
 	
-	rarity = BoxData.Rarity.RARE
-	rarity_mat = load("res://assets/rarities/rare.tres")
 	$UI/ColorRect3.visible = true
 
 	$Toy.visible = true
@@ -82,13 +80,12 @@ func spawn_toy():
 	var prices = %PriceGraph.get_market_price() # [toy 1 price, toy 2 price]
 	var val = calc_toy_value(toy, rarity)
 	val += val * prices[selected_toy]
-	
-	$UI/ColorRect3/ToyValue.text = "You Won: $" + str(val)
+	var rarity_str = BoxData.Rarity.keys()[rarity]
+	$UI/ColorRect3/ToyValue.text = "Rarity: " + rarity_str + "\nYou Won: $" + str(val)
 	$Toy.load_toy(toy, rarity_mat)
 	self.money += val
 	
 func calc_toy_value(toy: ToyData, rarity):
-	
 	if rarity == BoxData.Rarity.COMMON:
 		return toy.price
 	elif rarity == BoxData.Rarity.UNCOMMON:
