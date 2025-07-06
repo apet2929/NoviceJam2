@@ -1,9 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://rtucc3yx2phj"]
-
-[ext_resource type="Shader" uid="uid://bkas03p74nld" path="res://assets/rarities/rarity.gdshader" id="1_62gbb"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://begxdphgfx6yr"]
 
 [resource]
-render_priority = 0
-shader = ExtResource("1_62gbb")
-shader_parameter/aura_padding = 0.5
-shader_parameter/aura_color = Color(0.528605, 0.379421, 0.190192, 1)
+transparency = 1
+albedo_color = Color(0.543, 0.512, 0.307, 0.619)
+roughness = 0.0
