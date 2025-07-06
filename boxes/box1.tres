@@ -3,8 +3,7 @@
 [ext_resource type="Material" uid="uid://oiwtu2q0vjt0" path="res://cereal.tres" id="1_p4p0l"]
 [ext_resource type="Texture2D" uid="uid://cwu4d6aprp06k" path="res://assets/Cock Flake.png" id="1_smfpb"]
 [ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="2_smfpb"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_mfdv2"]
+[ext_resource type="ArrayMesh" uid="uid://cnw675senpvdi" path="res://bunny_mesh.tres" id="4_ik6fi"]
 
 [resource]
 script = ExtResource("2_smfpb")
@@ -14,6 +13,6 @@ description = "This cereal sucks ASS"
 manufacturer = "StanCorp"
 rarity = 0
 material = ExtResource("1_p4p0l")
-toy_mesh = SubResource("CapsuleMesh_mfdv2")
+toy_mesh = ExtResource("4_ik6fi")
 brand_texture = ExtResource("1_smfpb")
 metadata/_custom_type_script = "uid://bq45u8nsq6ujc"

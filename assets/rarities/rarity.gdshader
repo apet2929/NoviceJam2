@@ -25,14 +25,14 @@ float sum_of_sines(float theta){
 
 void vertex() {
 	depth = distance(CAMERA_POSITION_WORLD, NODE_POSITION_WORLD);
-	
+
 	float facing_away = 1.0 - abs(dot(NORMAL, vec3(0.0, 0.0, 1.0)));
 	//float facing_away = abs(dot(viewspace_binormal, vec3(0.0, 0.0, 1.0)));
 	float theta = atan(VERTEX.y, VERTEX.z); // [-PI, PI]
 	float dist_from_center = length(VERTEX);
 	float grow_amount = sum_of_sines(theta);
-	
-	
+
+
 	VERTEX += (aura_padding + grow_amount) * NORMAL;
 }
 
@@ -63,11 +63,11 @@ void fragment() {
 	//float density = 50.0 / sqrt(max(depth, 1.0));
 	float f1 = dot(VIEW, vec3(0,0,1));
 	float rad = 0.05;
-	f1 = smoothstep(1.0-rad, 1.0, f1); // 
+	f1 = smoothstep(1.0-rad, 1.0, f1); //
 	float f2 = length(sin(UV * vec2(density)));
 	float f = weighted_avg({f1, f2}, {0.0, 1.0});
 	vec3 foo = normalize(vec3(cos(TIME), 0, sin(TIME)));
-	float d = dot(BINORMAL, foo); 
+	float d = dot(BINORMAL, foo);
 	float threshold = d;
 	f = smoothstep((1.0 - threshold), 1, f);
 	float dark_spots = smoothstep(f-0.1, f+0.1, 0.3);
@@ -76,4 +76,3 @@ void fragment() {
 	ALBEDO = aura_color;
 	ALPHA = 0.7;
 }
-
