@@ -14,11 +14,11 @@ text = "Hello World"
 
 [resource]
 script = ExtResource("2_dsvg0")
-name = "Cumios"
+name = "CMY Eagle Cereal"
 price = 9.95
-description = "This cereal will get you HARD"
-manufacturer = "ShitBrix"
-rarity = 2
+description = "Now with added baby bald eagle eyeballs for added vitamins and nutrients!"
+manufacturer = "The American Federation for Animal Abusers"
+rarity = 0
 material = SubResource("StandardMaterial3D_dsvg0")
 toy_mesh = SubResource("TextMesh_b8tuu")
 brand_texture = ExtResource("1_dsvg0")

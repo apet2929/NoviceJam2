@@ -375,6 +375,7 @@ offset_bottom = 42.0
 theme = ExtResource("2_7jktm")
 text = "Description:
 Foo bar"
+autowrap_mode = 2
 
 [node name="PriceGraph" type="ColorRect" parent="UI"]
 custom_minimum_size = Vector2(80, 80)

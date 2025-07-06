@@ -7,11 +7,11 @@
 
 [resource]
 script = ExtResource("2_smfpb")
-name = "Foo Bar"
+name = "Cock Flakes"
 price = 15.03
-description = "This cereal sucks ASS"
-manufacturer = "StanCorp"
-rarity = 0
+description = "Exalted cereal for exalted minds. Dare to gaze into the box and witness horrors beyond your comprehension."
+manufacturer = "CockCorp"
+rarity = 2
 material = ExtResource("1_p4p0l")
 toy_mesh = ExtResource("4_ik6fi")
 brand_texture = ExtResource("1_smfpb")
