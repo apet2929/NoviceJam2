@@ -11,10 +11,17 @@ func _ready() -> void:
 	%BuyButton.connect("button_up", self.buy_box)
 	%NextButton.connect("button_up", self.spawn_new_box)
 	%SkipButton.connect("button_up", self.spawn_new_box)
+	%MuteButton.connect("button_up", self.mute)
 	$Bat/AnimationPlayer.play("RESET")
 	$Bat.visible = false
 	$Toy.visible = false
 	spawn_new_box()
+
+func mute():
+	if $Music.playing:
+		$Music.stop()
+	else:
+		$Music.play(0)
 
 func buy_box():
 	var box = $CerealBox.data
@@ -35,14 +42,18 @@ func play_swing():
 	print(anim_id)
 	$Bat/AnimationPlayer.play(selected_anim)
 	print(selected_anim)
-	
+
 func explode():
 	$CerealBox.visible = false
 	$CerealExplosion.restart()
 	$CerealExplosion.emitting = true
 	spawn_toy()
 	%NextButton.disabled = false
-	
+	play_sfx()
+
+func play_sfx():
+	$SFX.play()
+
 const LEGENDARY_RARITY = 0.01
 const RARE_RARITY = 0.1
 const UNCOMMON_RARITY = 0.3

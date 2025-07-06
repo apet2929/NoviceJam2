@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dxqc6ud75d3ld"]
+
+[ext_resource type="Material" uid="uid://oiwtu2q0vjt0" path="res://foo2.tres" id="1_vh7kd"]
+
+[resource]
+next_pass = ExtResource("1_vh7kd")
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.05
