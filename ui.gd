@@ -3,8 +3,8 @@ extends Control
 @onready var box: Box = %CerealBox
 @onready var box_name = $VSplitContainer/ColorRect/VBoxContainer/BoxName
 @onready var manufacturer = $VSplitContainer/ColorRect/VBoxContainer/Manufacturer
-@onready var description = $ColorRect2/Description
-@onready var price = $ColorRect4/Price
+@onready var description = $VSplitContainer/ColorRect2/Description
+@onready var price = $VSplitContainer/ColorRect2/Price
 
 func _ready() -> void:
 	self.load_box()

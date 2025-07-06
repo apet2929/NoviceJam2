@@ -5,7 +5,6 @@ extends Node3D
 @export var possible_boxes: Array[BoxData] = []
 @export var rarity_mats: Dictionary[BoxData.Rarity, BaseMaterial3D] = {}
 var selected_toy = -1 # selected_toy either 0 (first toy) or 1 (second toy)
-
 func _ready() -> void:
 	$CerealExplosion.emitting = false
 	%BuyButton.connect("button_up", self.buy_box)
@@ -18,7 +17,7 @@ func _ready() -> void:
 	spawn_new_box()
 	
 func _process(delta: float) -> void:
-	$UI/ColorRect4/Money.text = "Balance: " + str(self.money)
+	$UI/VSplitContainer/ColorRect2/Money.text = "Balance: " + str(self.money)
 
 func mute():
 	if $Music.playing:
@@ -32,8 +31,8 @@ func buy_box():
 	self.selected_toy = 0 if randf() > 0.5 else 1
 
 	play_swing()
-	$UI/ColorRect2/BuyContainer.visible = false
-	$UI/ColorRect2/NextContainer.visible = true
+	$UI/VSplitContainer/ColorRect2/BuyContainer.visible = false
+	$UI/VSplitContainer/ColorRect2/NextContainer.visible = true
 
 func play_swing():
 	$Bat.visible = true
@@ -100,8 +99,8 @@ func spawn_new_box():
 	var box_data = choose_random_box()
 	$CerealBox.reset(box_data)
 	$UI.load_box()
-	$UI/ColorRect2/BuyContainer.visible = true
-	$UI/ColorRect2/NextContainer.visible = false
+	$UI/VSplitContainer/ColorRect2/BuyContainer.visible = true
+	$UI/VSplitContainer/ColorRect2/NextContainer.visible = false
 	$Bat/AnimationPlayer.play("RESET")
 	$Bat.visible = false
 	%NextButton.disabled = true
