@@ -28,11 +28,9 @@ func mute():
 
 func buy_box():
 	var box = $CerealBox.data
-	var prices = %PriceGraph.get_market_price() # [box price, toy 1 price, toy 2 price]
-	self.money -= prices[0]
+	self.money -= $CerealBox.data.price
 	self.selected_toy = 0 if randf() > 0.5 else 1
-	self.money += prices[selected_toy + 1]
-	
+
 	play_swing()
 	$UI/VSplitContainer/ColorRect2/BuyContainer.visible = false
 	$UI/VSplitContainer/ColorRect2/NextContainer.visible = true
@@ -81,12 +79,16 @@ func spawn_toy():
 
 	$Toy.visible = true
 	var toy = $CerealBox.data.toys[selected_toy]
+	var prices = %PriceGraph.get_market_price() # [toy 1 price, toy 2 price]
 	var val = calc_toy_value(toy, rarity)
+	val += val * prices[selected_toy]
+	
 	$UI/ColorRect3/ToyValue.text = "You Won: $" + str(val)
 	$Toy.load_toy(toy, rarity_mat)
 	self.money += val
 	
 func calc_toy_value(toy: ToyData, rarity):
+	
 	if rarity == BoxData.Rarity.COMMON:
 		return toy.price
 	elif rarity == BoxData.Rarity.UNCOMMON:
@@ -110,7 +112,7 @@ func spawn_new_box():
 	$Toy.visible = false
 	$UI/ColorRect3.visible = false
 
-func choose_random_box() -> BoxData:	
+func choose_random_box() -> BoxData:
 	var index = randi_range(0, len(self.possible_boxes)-1)
 	var selected = self.possible_boxes[index]
 	return selected
