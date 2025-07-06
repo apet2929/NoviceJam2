@@ -519,6 +519,60 @@ offset_right = 1103.0
 offset_bottom = 361.0
 text = "Mute Music"
 
+[node name="Price" type="Label" parent="UI/PriceGraph"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.116
+anchor_top = 0.383
+anchor_right = 0.116
+anchor_bottom = 0.383
+offset_left = 230.76
+offset_top = -30.94
+offset_right = 333.76
+offset_bottom = 0.0599976
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7jktm")
+theme_override_font_sizes/font_size = 16
+text = "Toy Option 1"
+horizontal_alignment = 1
+
+[node name="Price2" type="Label" parent="UI/PriceGraph"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.116
+anchor_top = 0.383
+anchor_right = 0.116
+anchor_bottom = 0.383
+offset_left = 100.76
+offset_top = -63.94
+offset_right = 203.76
+offset_bottom = -32.94
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7jktm")
+theme_override_font_sizes/font_size = 16
+text = "Toy Market Current Rates"
+horizontal_alignment = 1
+
+[node name="Price3" type="Label" parent="UI/PriceGraph"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.119
+anchor_top = 0.572
+anchor_right = 0.119
+anchor_bottom = 0.572
+offset_left = 234.59
+offset_top = -25.96
+offset_right = 337.59
+offset_bottom = 5.03999
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7jktm")
+theme_override_font_sizes/font_size = 16
+text = "Toy Option 2"
+horizontal_alignment = 1
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_iotsf")
 autoplay = true
