@@ -19,7 +19,6 @@ func reset(box_data: BoxData):
 	
 	self.visible = true
 	
-
 func _process(delta: float) -> void:
 	if not mat_loaded:
 		if self.data.material != null:
