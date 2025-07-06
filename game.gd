@@ -4,6 +4,7 @@ extends Node3D
 
 @export var possible_boxes: Array[BoxData] = []
 @export var rarity_mats: Dictionary[BoxData.Rarity, BaseMaterial3D] = {}
+var selected_toy = -1 # selected_toy either 0 (first toy) or 1 (second toy)
 
 func _ready() -> void:
 	$CerealExplosion.emitting = false
@@ -17,7 +18,11 @@ func _ready() -> void:
 
 func buy_box():
 	var box = $CerealBox.data
-	self.money -= box.price
+	var prices = %PriceGraph.get_market_price() # [box price, toy 1 price, toy 2 price]
+	self.money -= prices[0]
+	self.selected_toy = 0 if randf() > 0.5 else 1
+	self.money += prices[selected_toy + 1]
+	
 	play_swing()
 	$UI/VSplitContainer/ColorRect2/BuyContainer.visible = false
 	$UI/VSplitContainer/ColorRect2/NextContainer.visible = true
@@ -40,7 +45,8 @@ func explode():
 	
 func spawn_toy():
 	$Toy.visible = true
-	$Toy.load_toy($CerealBox.data.toy_mesh, null)
+	print(selected_toy)
+	$Toy.load_toy($CerealBox.data.toy_meshes[selected_toy], null)
 	
 	
 func spawn_new_box():
