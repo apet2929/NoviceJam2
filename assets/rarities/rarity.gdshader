@@ -33,7 +33,7 @@ void vertex() {
 	float grow_amount = sum_of_sines(theta);
 
 
-	VERTEX += (aura_padding + grow_amount) * NORMAL;
+	VERTEX += (aura_padding + grow_amount) * normalize((NORMAL + BINORMAL));
 }
 
 float circle(vec2 uv){

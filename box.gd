@@ -23,7 +23,6 @@ func reset(box_data: BoxData):
 func _process(delta: float) -> void:
 	if not mat_loaded:
 		if self.data.material != null:
-			#self.data.material.next_pass = 
 			$MeshInstance3D.set_surface_override_material(0,  self.data.material)
 			mat_loaded = true
 			var mat =  $MeshInstance3D/MeshInstance3D.get_surface_override_material(0)

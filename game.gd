@@ -61,6 +61,9 @@ func spawn_toy():
 		rarity_mat = load("res://assets/rarities/uncommon.tres")
 	else:
 		rarity = BoxData.Rarity.COMMON
+	
+	rarity = BoxData.Rarity.RARE
+	rarity_mat = load("res://assets/rarities/rare.tres")
 		
 	$Toy.visible = true
 	var toy = $CerealBox.data.toys[selected_toy]
