@@ -52,7 +52,6 @@ func explode():
 	$CerealExplosion.emitting = true
 	spawn_toy()
 	%NextButton.disabled = false
-	play_sfx()
 
 func play_sfx():
 	$SFX.play()
@@ -78,12 +77,26 @@ func spawn_toy():
 	
 	rarity = BoxData.Rarity.RARE
 	rarity_mat = load("res://assets/rarities/rare.tres")
-		
+	$UI/ColorRect3.visible = true
+
 	$Toy.visible = true
 	var toy = $CerealBox.data.toys[selected_toy]
+	var val = calc_toy_value(toy, rarity)
+	$UI/ColorRect3/ToyValue.text = "You Won: $" + str(val)
 	$Toy.load_toy(toy, rarity_mat)
-	self.money += toy.price
+	self.money += val
 	
+func calc_toy_value(toy: ToyData, rarity):
+	if rarity == BoxData.Rarity.COMMON:
+		return toy.price
+	elif rarity == BoxData.Rarity.UNCOMMON:
+		return toy.price + 5
+	elif rarity == BoxData.Rarity.RARE:
+		return toy.price + 10
+	elif rarity == BoxData.Rarity.LEGENDARY:
+		return toy.price + 25
+	return toy.price
+
 func spawn_new_box():
 	var box_data = choose_random_box()
 	$CerealBox.reset(box_data)
@@ -95,6 +108,7 @@ func spawn_new_box():
 	%NextButton.disabled = true
 	$Toy/AnimationPlayer.play("RESET")
 	$Toy.visible = false
+	$UI/ColorRect3.visible = false
 
 func choose_random_box() -> BoxData:	
 	var index = randi_range(0, len(self.possible_boxes)-1)
