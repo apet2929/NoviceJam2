@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://br17d7v6ogjd7"]
+[gd_scene load_steps=10 format=3 uid="uid://br17d7v6ogjd7"]
 
 [ext_resource type="Script" uid="uid://chrq7f8ei6jam" path="res://box.gd" id="1_4dgk7"]
 [ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="2_dmlxi"]
+[ext_resource type="Script" uid="uid://dyr0ut83n8g8r" path="res://toy_data.gd" id="3_k8fp7"]
 [ext_resource type="Material" uid="uid://cue72lh3v2h7j" path="res://outline.tres" id="3_nvcx1"]
 [ext_resource type="Material" uid="uid://b8ed4dduq5oku" path="res://brand.tres" id="4_haetb"]
-[ext_resource type="Shader" uid="uid://ci2ub30rlxeoy" path="res://aura.gdshader" id="4_nvcx1"]
 
 [sub_resource type="Resource" id="Resource_nvcx1"]
 script = ExtResource("2_dmlxi")
@@ -12,8 +12,7 @@ name = "Foo Bar"
 price = 0.0
 description = "Description"
 manufacturer = "StanCorp"
-rarity = 0
-toy_meshes = Array[Mesh]([])
+toys = Array[ExtResource("3_k8fp7")]([])
 metadata/_custom_type_script = "uid://bq45u8nsq6ujc"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8fp7"]
@@ -25,28 +24,6 @@ size = Vector3(4, 6, 1.25)
 
 [sub_resource type="QuadMesh" id="QuadMesh_47ttl"]
 size = Vector2(2.775, 4.295)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_haetb"]
-render_priority = 0
-shader = ExtResource("4_nvcx1")
-shader_parameter/_Scale = 0.05
-shader_parameter/_Opacity = 10.0
-shader_parameter/_Edge = 0.1
-shader_parameter/_ColorAura = Color(1, 0, 0, 1)
-shader_parameter/_ColorRim = Color(0, 0, 1, 1)
-shader_parameter/_Brightness = 2.0
-shader_parameter/_SpeedX = 0.0
-shader_parameter/_SpeedY = 3.0
-shader_parameter/_OffsetFade = 1.0
-shader_parameter/_GlowBrightness = 3.0
-shader_parameter/_OutlineFixed = 2.0
-shader_parameter/_RimPower2 = 6.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmlxi"]
-next_pass = SubResource("ShaderMaterial_haetb")
-transparency = 1
-albedo_color = Color(0.6, 0.384, 0.133, 0.508)
-roughness = 0.0
 
 [node name="CerealBox" type="Node3D"]
 script = ExtResource("1_4dgk7")
@@ -60,8 +37,3 @@ mesh = SubResource("BoxMesh_dmlxi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 mesh = SubResource("QuadMesh_47ttl")
 surface_material_override/0 = ExtResource("4_haetb")
-
-[node name="Aura" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_dmlxi")
-surface_material_override/0 = SubResource("StandardMaterial3D_dmlxi")

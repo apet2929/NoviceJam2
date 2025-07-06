@@ -15,16 +15,14 @@ enum Rarity {
 @export var price: float;
 @export var description: String;
 @export var manufacturer: String;
-@export var rarity: Rarity;
 @export var material: BaseMaterial3D;
-@export var toy_meshes: Array[Mesh];
+@export var toys: Array[ToyData];
 @export var brand_texture: Texture;
 
-func _init(Price=0.0, Name="Debug", Description="", Manufacturer="", Rarity=Rarity.COMMON):
+func _init(Price=0.0, Name="Debug", Description="", Manufacturer=""):
 	self.price = Price
 	self.name = Name
 	self.description = Description
 	self.manufacturer = Manufacturer
-	self.rarity = Rarity
 	
 	

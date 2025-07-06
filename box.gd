@@ -13,20 +13,9 @@ const LEGENDARY_RARITY = 0.01
 const RARE_RARITY = 0.1
 const UNCOMMON_RARITY = 0.3
 
-func reset(box_data: BoxData, rarityf: float):
+func reset(box_data: BoxData):
 	self.data = box_data
 	self.mat_loaded = false
-	
-	if rarityf < LEGENDARY_RARITY:
-		self.rarity = BoxData.Rarity.LEGENDARY
-	elif rarityf < RARE_RARITY:
-		self.rarity = BoxData.Rarity.RARE
-	elif rarityf < UNCOMMON_RARITY:
-		self.rarity = BoxData.Rarity.UNCOMMON
-	else:
-		self.rarity = BoxData.Rarity.COMMON
-	
-	print(BoxData.Rarity.keys()[self.rarity])
 	
 	self.visible = true
 	
