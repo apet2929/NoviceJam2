@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cpuy8wbqpxxod" path="res://assets/CMY Eagle Cereal.png" id="1_dsvg0"]
 [ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="2_dsvg0"]
 [ext_resource type="Script" uid="uid://dyr0ut83n8g8r" path="res://toy_data.gd" id="4_rq45j"]
-[ext_resource type="Resource" uid="uid://b0clqw7btca0a" path="res://assets/td_black_tweaker.tres" id="5_21kxa"]
-[ext_resource type="Resource" uid="uid://ds6cfl0bwegu4" path="res://assets/bird_toy_data.tres" id="6_21kxa"]
+[ext_resource type="Resource" uid="uid://cndkh8nskowlf" path="res://assets/td_disc.tres" id="5_21kxa"]
+[ext_resource type="Resource" uid="uid://b15d5s0q5113t" path="res://assets/td_buff_fly.tres" id="6_21kxa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsvg0"]
 next_pass = ExtResource("1_b8tuu")

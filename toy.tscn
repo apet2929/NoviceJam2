@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bl8a8cgvsfq0b"]
+[gd_scene load_steps=9 format=3 uid="uid://bl8a8cgvsfq0b"]
 
 [ext_resource type="Script" uid="uid://lykiv8ylwx1u" path="res://toy.gd" id="1_tvsie"]
-[ext_resource type="Theme" uid="uid://cebssi3strko3" path="res://theme.res" id="2_4kfnp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fe3bf"]
 
@@ -86,9 +85,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ljxe0")
 libraries = {
 &"": SubResource("AnimationLibrary_032ar")
 }
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme = ExtResource("2_4kfnp")
-text = "Value: $0"

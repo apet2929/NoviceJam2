@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ToyData" load_steps=3 format=3 uid="uid://b3q5yrhhagt18"]
+
+[ext_resource type="ArrayMesh" uid="uid://bd5cobm6tlpa8" path="res://assets/sherman.tres" id="1_5h7cy"]
+[ext_resource type="Script" uid="uid://dyr0ut83n8g8r" path="res://toy_data.gd" id="1_vmnte"]
+
+[resource]
+script = ExtResource("1_vmnte")
+price = 5.0
+mesh = ExtResource("1_5h7cy")
+scale = Vector3(1, 1, 1)
+metadata/_custom_type_script = "uid://dyr0ut83n8g8r"

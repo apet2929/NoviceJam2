@@ -4,8 +4,8 @@
 [ext_resource type="Material" uid="uid://cue72lh3v2h7j" path="res://outline.tres" id="2_4yxu7"]
 [ext_resource type="Script" uid="uid://bq45u8nsq6ujc" path="res://box_data.gd" id="3_1k64f"]
 [ext_resource type="Script" uid="uid://dyr0ut83n8g8r" path="res://toy_data.gd" id="4_4yxu7"]
-[ext_resource type="Resource" uid="uid://txn4nhng53bx" path="res://assets/td_fat_angel.tres" id="5_lsue4"]
-[ext_resource type="Resource" uid="uid://ds6cfl0bwegu4" path="res://assets/bird_toy_data.tres" id="6_lsue4"]
+[ext_resource type="Resource" uid="uid://c8f6vws3fdxm1" path="res://assets/td_lips_mcgee.tres" id="5_lsue4"]
+[ext_resource type="Resource" uid="uid://b3q5yrhhagt18" path="res://assets/td_sherman.tres" id="6_lsue4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4yxu7"]
 next_pass = ExtResource("2_4yxu7")

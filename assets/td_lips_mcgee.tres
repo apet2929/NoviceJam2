@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ToyData" load_steps=2 format=3 uid="uid://c8f6vws3fdxm1"]
+
+[ext_resource type="Script" uid="uid://dyr0ut83n8g8r" path="res://toy_data.gd" id="1_mnd2y"]
+
+[resource]
+script = ExtResource("1_mnd2y")
+price = 5.0
+scale = Vector3(1, 1, 1)
+metadata/_custom_type_script = "uid://dyr0ut83n8g8r"

@@ -285,51 +285,100 @@ size_flags_vertical = 3
 theme = ExtResource("2_7jktm")
 script = ExtResource("2_feb5d")
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-layout_mode = 0
-offset_right = 471.0
-offset_bottom = 648.0
-color = Color(0.259294, 0.259294, 0.259294, 1)
-
 [node name="ColorRect3" type="ColorRect" parent="UI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -432.0
-offset_top = 39.0
-offset_right = -152.0
-offset_bottom = 125.0
+offset_left = -201.0
+offset_top = 16.0
+offset_right = -12.0
+offset_bottom = 81.0
 grow_horizontal = 0
 size_flags_vertical = 3
 theme = ExtResource("2_7jktm")
-color = Color(0.890196, 0.858824, 0.788235, 1)
+color = Color(0.890196, 0.858824, 0.788235, 0.639216)
 
 [node name="ToyValue" type="Label" parent="UI/ColorRect3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 9.0
-offset_right = -11.0
-offset_bottom = -6.0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_7jktm")
+theme_override_font_sizes/font_size = 16
 text = "You Won: $"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -370.0
+offset_top = -62.0
+offset_right = -90.0
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 3
+theme = ExtResource("2_7jktm")
+color = Color(0.890196, 0.858824, 0.788235, 0.639216)
+
+[node name="Money" type="Label" parent="UI/ColorRect4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_top = -73.0
+offset_right = 129.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7jktm")
+theme_override_font_sizes/font_size = 15
+text = "Balance: $0"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="UI/ColorRect4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -37.0
+offset_right = 117.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7jktm")
+theme_override_font_sizes/font_size = 15
+text = "Cost: $0"
+horizontal_alignment = 1
 
 [node name="VSplitContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.391
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 9.56796
-offset_bottom = -8.0
+offset_left = -1.0
+offset_top = 13.0
+offset_right = -1.23999
+offset_bottom = 14.0
 grow_vertical = 2
 theme = ExtResource("2_7jktm")
 theme_override_constants/separation = 0
@@ -338,7 +387,7 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 theme = ExtResource("2_7jktm")
-color = Color(0.890196, 0.858824, 0.788235, 1)
+color = Color(0.89, 0.859, 0.788, 0.641)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/VSplitContainer/ColorRect"]
 layout_mode = 1
@@ -361,95 +410,89 @@ theme_override_font_sizes/font_size = 15
 text = "Manufacturer: Foo bar"
 autowrap_mode = 2
 
-[node name="ColorRect2" type="ColorRect" parent="UI/VSplitContainer"]
-layout_mode = 2
+[node name="ColorRect2" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -197.0
+offset_right = 250.0
+offset_bottom = 6.0
+grow_vertical = 0
 size_flags_vertical = 3
 theme = ExtResource("2_7jktm")
-color = Color(0.890196, 0.858824, 0.788235, 1)
+color = Color(0.890196, 0.858824, 0.788235, 0.639216)
 
-[node name="Money" type="Label" parent="UI/VSplitContainer/ColorRect2"]
+[node name="BuyContainer" type="HFlowContainer" parent="UI/ColorRect2"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.5
-offset_top = 71.0
-offset_right = 194.5
-offset_bottom = 114.0
+anchors_preset = -1
+anchor_left = -0.044
+anchor_top = 0.823
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0690002
+offset_right = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme = ExtResource("2_7jktm")
-text = "Balance: $0"
-horizontal_alignment = 1
-autowrap_mode = 2
+theme_override_constants/h_separation = 20
+alignment = 1
 
-[node name="Price" type="Label" parent="UI/VSplitContainer/ColorRect2"]
+[node name="BuyButton" parent="UI/ColorRect2/BuyContainer" instance=ExtResource("3_fc0e3")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+
+[node name="SkipButton" parent="UI/ColorRect2/BuyContainer" instance=ExtResource("3_fc0e3")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Skip"
+
+[node name="NextContainer" type="HFlowContainer" parent="UI/ColorRect2"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -178.5
-offset_top = -126.0
-offset_right = 165.5
-offset_bottom = -83.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("2_7jktm")
-text = "Cost: $0"
-horizontal_alignment = 1
-
-[node name="BuyContainer" type="HFlowContainer" parent="UI/VSplitContainer/ColorRect2"]
-layout_mode = 2
-offset_top = 404.0
-offset_right = 450.0
-offset_bottom = 450.0
+offset_left = -112.0
+offset_top = -37.0
+offset_right = 113.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_7jktm")
 theme_override_constants/h_separation = 20
 alignment = 1
 
-[node name="BuyButton" parent="UI/VSplitContainer/ColorRect2/BuyContainer" instance=ExtResource("3_fc0e3")]
+[node name="NextButton" parent="UI/ColorRect2/NextContainer" instance=ExtResource("3_fc0e3")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="SkipButton" parent="UI/VSplitContainer/ColorRect2/BuyContainer" instance=ExtResource("3_fc0e3")]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Skip"
-
-[node name="NextContainer" type="HFlowContainer" parent="UI/VSplitContainer/ColorRect2"]
-visible = false
-layout_mode = 2
-offset_top = 404.0
-offset_right = 450.0
-offset_bottom = 450.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("2_7jktm")
-theme_override_constants/h_separation = 20
-alignment = 1
-
-[node name="NextButton" parent="UI/VSplitContainer/ColorRect2/NextContainer" instance=ExtResource("3_fc0e3")]
-unique_name_in_owner = true
-layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Next"
 
-[node name="Description" type="Label" parent="UI/VSplitContainer/ColorRect2"]
+[node name="Description" type="Label" parent="UI/ColorRect2"]
 layout_mode = 0
 offset_left = 18.0
-offset_top = -39.0
-offset_right = 436.0
-offset_bottom = 42.0
+offset_top = -55.0
+offset_right = 239.0
+offset_bottom = 26.0
 theme = ExtResource("2_7jktm")
 theme_override_font_sizes/font_size = 15
 text = "Description:
 Foo bar"
 autowrap_mode = 2
+
+[node name="MuteButton" parent="UI" instance=ExtResource("3_fc0e3")]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 554.0
+offset_top = 338.0
+offset_right = 634.0
+offset_bottom = 365.0
+theme_override_font_sizes/font_size = 12
+text = "Mute Music"
 
 [node name="PriceGraph" type="ColorRect" parent="UI"]
 unique_name_in_owner = true
@@ -458,10 +501,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 42.0
-offset_top = -50.0
-offset_right = 432.0
-offset_bottom = 130.0
+offset_left = 11.0
+offset_top = 15.0
+offset_right = 239.0
+offset_bottom = 145.0
 grow_vertical = 2
 color = Color(0.245529, 0.481155, 0.214422, 1)
 script = ExtResource("13_lc2xo")
@@ -491,37 +534,28 @@ size_flags_horizontal = 0
 
 [node name="YAxis" type="ColorRect" parent="UI/PriceGraph"]
 layout_mode = 2
-offset_left = 10.0
-offset_top = 5.0
+offset_left = 11.0
+offset_top = 2.0
 offset_right = 14.0
-offset_bottom = 152.0
+offset_bottom = 123.0
 color = Color(0.530148, 0.742614, 0.476128, 1)
 
 [node name="XAxis" type="ColorRect" parent="UI/PriceGraph"]
 layout_mode = 2
-offset_left = 12.0
-offset_top = 147.52
-offset_right = 274.0
-offset_bottom = 151.52
+offset_left = 13.0
+offset_top = 106.0
+offset_right = 223.0
+offset_bottom = 110.0
 color = Color(0.530148, 0.742614, 0.476128, 1)
 
 [node name="Label" type="Label" parent="UI/PriceGraph"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 148.0
-offset_right = 289.0
-offset_bottom = 176.0
+offset_left = 14.0
+offset_top = 106.0
+offset_right = 292.0
+offset_bottom = 134.0
 theme_override_font_sizes/font_size = 14
-text = "-50%                       0%                        +50%"
-
-[node name="MuteButton" parent="UI/PriceGraph" instance=ExtResource("3_fc0e3")]
-unique_name_in_owner = true
-layout_mode = 2
-offset_left = 945.0
-offset_top = 315.0
-offset_right = 1103.0
-offset_bottom = 361.0
-text = "Mute Music"
+text = "-50%              0%                   +50%"
 
 [node name="Price" type="Label" parent="UI/PriceGraph"]
 layout_mode = 1
@@ -530,14 +564,15 @@ anchor_left = 0.116
 anchor_top = 0.383
 anchor_right = 0.116
 anchor_bottom = 0.383
-offset_left = 230.76
-offset_top = -30.94
-offset_right = 333.76
-offset_bottom = 0.0599976
+offset_left = 101.552
+offset_top = -23.343
+offset_right = 204.552
+offset_bottom = 7.657
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_7jktm")
-theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
 text = "Toy Option 1"
 horizontal_alignment = 1
 
@@ -548,14 +583,15 @@ anchor_left = 0.116
 anchor_top = 0.383
 anchor_right = 0.116
 anchor_bottom = 0.383
-offset_left = 100.76
-offset_top = -63.94
-offset_right = 203.76
-offset_bottom = -32.94
+offset_left = -5.448
+offset_top = -49.343
+offset_right = 193.552
+offset_bottom = -18.343
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_7jktm")
-theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
 text = "Toy Market Current Rates"
 horizontal_alignment = 1
 
@@ -566,14 +602,15 @@ anchor_left = 0.119
 anchor_top = 0.572
 anchor_right = 0.119
 anchor_bottom = 0.572
-offset_left = 234.59
-offset_top = -25.96
-offset_right = 337.59
-offset_bottom = 5.03999
+offset_left = 94.868
+offset_top = -12.212
+offset_right = 197.868
+offset_bottom = 18.788
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_7jktm")
-theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
 text = "Toy Option 2"
 horizontal_alignment = 1
 

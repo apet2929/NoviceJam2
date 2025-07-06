@@ -17,6 +17,13 @@ boot_splash/bg_color=Color(0, 0.556068, 0.166534, 1)
 boot_splash/image="uid://bhkvegfakbxo5"
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/bg_color=Color(0.14, 0.14, 0.14, 1)
+window/image=""
+
 [filesystem]
 
 import/blender/enabled=false
